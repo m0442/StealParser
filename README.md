@@ -1,135 +1,59 @@
-# 🔍 Data Parser & Analyzer
+# 🔍 Leaked Data Parser & Analyzer
 
 ##  Overview
 
-**Data Parser & Analyzer** is an advanced tool designed for research, collection, and analysis of structured data from various sources. This tool is specifically designed for security researchers and digital forensics analysts to understand and analyze collected data.
+**Leaked Data Parser & Analyzer** is an advanced tool designed for extracting, parsing, and analyzing leaked data from various sources including dark web repositories, data breaches, and other compromised data sources. This tool is specifically designed for security researchers, digital forensics analysts, and cybersecurity professionals to understand and analyze leaked information.
 
 ## ⚠️ Important Warning
 
-**This tool is designed for research and educational purposes only. Please use it responsibly and in compliance with local laws.**
+**This tool is designed for legitimate security research and educational purposes only. Users must ensure compliance with applicable laws and regulations. The tool should only be used on data you have legal permission to analyze.**
 
 ## 🚀 Key Features
 
-### 🔧 Multi-Format Processing
-- **Structured Data Parsing** - Complete data processing
-- **Information Analysis** - Comprehensive data analysis
-- **Data Extraction** - Efficient data collection
-- **Advanced Processing** - Complex data handling
-- **Encrypted Data Analysis** - Secure data processing
-- **Credential Extraction** - Password and login data
-- **Session Data Processing** - Browser and application data
-- **File Analysis** - Document and media processing
-- **System Information** - Hardware and software details
+### 🔧 Multi-Source Data Processing
+- **Dark Web Data** - Extraction from dark web sources
+- **Data Breaches** - Analysis of breached databases
+- **Compromised Sources** - Processing of leaked information
+- **Encrypted Archives** - Decryption and analysis
+- **Structured Logs** - Parsing of various log formats
+- **Binary Data** - Analysis of binary files
+- **Network Captures** - Processing of network data
+- **File Archives** - Extraction from compressed files
+- **Database Dumps** - Analysis of database exports
 
-###  Data Analysis
-- **System Information** - Comprehensive system details
-- **Credentials** - Extracted login data analysis
+### 📊 Data Analysis Capabilities
+- **System Information** - Hardware and software details
+- **Credentials** - Username and password analysis
 - **Session Data** - Browser and application sessions
-- **Form Data** - Input field extraction
+- **Form Data** - Input field and autofill data
 - **Financial Information** - Payment and banking data
-- **Communication Data** - Messaging and email information
+- **Communication Data** - Email and messaging information
 - **Digital Assets** - Cryptocurrency and digital currency data
-- **Visual Evidence** - Screenshot and image collection
+- **Personal Information** - PII and sensitive data
 - **File Analysis** - Document and media processing
+- **Geographic Data** - Location and IP information
 
 ### 💾 Export Formats
 - **JSON** - Structured data export
 - **CSV** - Spreadsheet compatibility
-- **Excel** - Advanced reporting
-- **HTML** - Interactive reports
+- **Excel** - Advanced reporting with multiple sheets
+- **HTML** - Interactive web reports
 - **PDF** - Professional documentation
 
-## 🚀 Installation
-
-### Prerequisites
-- Python 3.8 or higher
-- Windows/Linux/macOS
-
-### Quick Start
-```bash
-# Clone the repository
-git clone https://github.com/m0442/StealParser.git
-cd data-parser-analyzer
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the application
-python data_parser.py
-```
-
-## 📖 Usage
-
-### GUI Mode
-1. Launch the application
-2. Select the directory containing data files
-3. Choose export format
-4. Click "Parse & Export"
-
-### Command Line Mode
-```bash
-python data_parser.py --input /path/to/data --output results.json --format json
-```
-
-## ⚙️ Configuration
-
-### Supported Data Types
-- Structured text files
-- Log files
-- Configuration files
-- Database exports
-- Archive files
-- Encrypted data
-- Binary files
-- Network captures
-
-### Export Options
-- **JSON**: Complete structured data
-- **CSV**: Tabular format for analysis
-- **Excel**: Multi-sheet reports
-- **HTML**: Interactive web reports
-- **PDF**: Professional documentation
-
-## 📊 Data Schema
-
-### Unified Data Structure
-```json
-{
-  "metadata": {
-    "parser_version": "2.0.0",
-    "parsed_at": "2024-01-01T00:00:00",
-    "total_sessions": 0,
-    "data_types": []
-  },
-  "sessions": [
-    {
-      "data_type": "structured_data",
-      "session_id": "unique_id",
-      "system_info": {},
-      "credentials": [],
-      "session_data": [],
-      "form_data": [],
-      "files": [],
-      "images": [],
-      "errors": []
-    }
-  ]
-}
-```
-
-## 🔒 Security Features
+## 🛡️ Security & Privacy Features
 
 ### Data Protection
-- **Encryption**: Sensitive data encryption
-- **Access Control**: User authentication
-- **Audit Logging**: Complete activity tracking
-- **Data Sanitization**: Safe data handling
+- **Local Processing** - All data processed locally
+- **Encryption** - Sensitive data encryption
+- **Access Control** - User authentication
+- **Audit Logging** - Complete activity tracking
+- **Data Sanitization** - Safe data handling
 
 ### Privacy Compliance
-- **GDPR Compliance**: Data protection regulations
-- **Local Processing**: No data transmission
-- **Secure Storage**: Encrypted file storage
-- **Access Logs**: Complete audit trail
+- **GDPR Compliance** - Data protection regulations
+- **No Data Transmission** - Zero external data sharing
+- **Secure Storage** - Encrypted file storage
+- **Access Logs** - Complete audit trail
 
 ## 🧪 Testing
 
@@ -140,15 +64,25 @@ python data_parser.py --test
 
 # Validate output
 python -m pytest tests/
+
+# Performance testing
+python data_parser.py --benchmark
 ```
 
 ## 📈 Performance
 
 ### Optimization Features
-- **Multi-threading**: Parallel processing
-- **Memory Management**: Efficient resource usage
-- **Caching**: Fast repeated operations
-- **Compression**: Reduced storage requirements
+- **Multi-threading** - Parallel processing
+- **Memory Management** - Efficient resource usage
+- **Caching** - Fast repeated operations
+- **Compression** - Reduced storage requirements
+- **Streaming** - Large file processing
+
+### Performance Metrics
+- **Processing Speed**: 1000+ records/second
+- **Memory Usage**: < 100MB
+- **File Size Support**: Up to 10GB+
+- **Concurrent Processing**: Multi-threaded
 
 ## 🤝 Contributing
 
@@ -164,6 +98,7 @@ python -m pytest tests/
 - Add type hints
 - Include docstrings
 - Write unit tests
+- Security review required
 
 ## 📄 License
 
@@ -171,7 +106,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## ⚖️ Legal Disclaimer
 
-This tool is provided for educational and research purposes only. Users are responsible for ensuring compliance with applicable laws and regulations. The authors are not responsible for any misuse of this software.
+This tool is provided for legitimate security research and educational purposes only. Users are responsible for ensuring compliance with applicable laws and regulations. The authors are not responsible for any misuse of this software. Users must only analyze data they have legal permission to access.
 
 ## 🆘 Support
 
@@ -179,19 +114,21 @@ This tool is provided for educational and research purposes only. Users are resp
 - [User Guide](docs/user-guide.md)
 - [API Reference](docs/api-reference.md)
 - [Troubleshooting](docs/troubleshooting.md)
+- [Security Guidelines](docs/security.md)
 
 ### Community
-- [Issues](https://github.com/yourusername/data-parser-analyzer/issues)
-- [Discussions](https://github.com/yourusername/data-parser-analyzer/discussions)
-- [Wiki](https://github.com/yourusername/data-parser-analyzer/wiki)
+- [Issues](https://github.com/yourusername/leaked-data-parser/issues)
+- [Discussions](https://github.com/yourusername/leaked-data-parser/discussions)
+- [Wiki](https://github.com/yourusername/leaked-data-parser/wiki)
 
 ## 📊 Statistics
 
-- **Supported Formats**: 10+
-- **Data Types**: 15+
+- **Supported Sources**: 15+
+- **Data Types**: 20+
 - **Export Formats**: 5
 - **Processing Speed**: 1000+ records/second
 - **Memory Usage**: < 100MB
+- **File Size Support**: 10GB+
 
 ## 🔄 Version History
 
@@ -200,6 +137,7 @@ This tool is provided for educational and research purposes only. Users are resp
 - Multiple export formats
 - Advanced data analysis
 - Security improvements
+- Dark web data support
 
 ### v1.0.0
 - Basic parsing functionality
@@ -208,4 +146,4 @@ This tool is provided for educational and research purposes only. Users are resp
 
 ---
 
-**Made with ❤️ for the security research community**
+**Made with ❤️ for the cybersecurity research community**
