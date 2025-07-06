@@ -71,7 +71,7 @@ class InfoStealerParser:
                 self._parse_stealc(stealer_dir)
             elif stealer_type == "Vider":
                 self._parse_vider(stealer_dir)
-            elif stealer_type == "Ununkown Stealer":
+            elif stealer_type == "Unknown Stealer":
                 self._parse_unknown(stealer_dir)
             elif stealer_type == "Dark Crystal RAT Stealer":
                 self._parse_dark_crystal(stealer_dir)
@@ -1172,3 +1172,124 @@ class DataExporter:
             return True, f"HTML exported successfully to {output_path}"
         except Exception as e:
             return False, f"Error exporting HTML: {str(e)}"
+
+    @staticmethod
+    def export_pdf(data: Dict[str, Any], output_path: str):
+        """Export data to PDF format with professional styling"""
+        try:
+            # Try to import reportlab, if not available, return error
+            try:
+                from reportlab.lib.pagesizes import letter, A4
+                from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+                from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+                from reportlab.lib.units import inch
+                from reportlab.lib import colors
+            except ImportError:
+                return False, "reportlab not installed. Please install with: pip install reportlab"
+            
+            doc = SimpleDocTemplate(output_path, pagesize=A4)
+            elements = []
+            styles = getSampleStyleSheet()
+            
+            # Title
+            title_style = ParagraphStyle(
+                'CustomTitle',
+                parent=styles['Heading1'],
+                fontSize=24,
+                spaceAfter=30,
+                alignment=1  # Center alignment
+            )
+            title = Paragraph("Leaked Data Parser Report", title_style)
+            elements.append(title)
+            elements.append(Spacer(1, 20))
+            
+            # Summary
+            summary_style = ParagraphStyle(
+                'Summary',
+                parent=styles['Normal'],
+                fontSize=12,
+                spaceAfter=20
+            )
+            
+            metadata = data.get('metadata', {})
+            summary_text = f"""
+            <b>Report Summary:</b><br/>
+            Generated: {metadata.get('parsed_at', 'N/A')}<br/>
+            Total Sessions: {metadata.get('total_sessions', 0)}<br/>
+            Parser Version: {metadata.get('parser_version', 'N/A')}<br/>
+            """
+            summary = Paragraph(summary_text, summary_style)
+            elements.append(summary)
+            elements.append(Spacer(1, 20))
+            
+            # Passwords Table
+            if any(session.get('passwords') for session in data.get('sessions', [])):
+                elements.append(Paragraph("<b>Passwords Found:</b>", styles['Heading2']))
+                elements.append(Spacer(1, 10))
+                
+                # Prepare password data
+                password_data = [['Stealer Type', 'Session ID', 'URL', 'Username', 'Password']]
+                for session in data.get('sessions', []):
+                    stealer_type = session.get('stealer_type', '')
+                    session_id = session.get('session_id', '')
+                    for password in session.get('passwords', []):
+                        password_data.append([
+                            stealer_type,
+                            session_id,
+                            password.get('url', ''),
+                            password.get('username', ''),
+                            password.get('password', '')
+                        ])
+                
+                if len(password_data) > 1:  # More than just headers
+                    password_table = Table(password_data)
+                    password_table.setStyle(TableStyle([
+                        ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                        ('FONTSIZE', (0, 0), (-1, 0), 10),
+                        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                        ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                        ('GRID', (0, 0), (-1, -1), 1, colors.black)
+                    ]))
+                    elements.append(password_table)
+                    elements.append(Spacer(1, 20))
+            
+            # System Information Table
+            if any(session.get('system_info') for session in data.get('sessions', [])):
+                elements.append(Paragraph("<b>System Information:</b>", styles['Heading2']))
+                elements.append(Spacer(1, 10))
+                
+                sysinfo_data = [['Stealer Type', 'Session ID', 'IP', 'Country', 'OS']]
+                for session in data.get('sessions', []):
+                    stealer_type = session.get('stealer_type', '')
+                    session_id = session.get('session_id', '')
+                    system_info = session.get('system_info', {})
+                    sysinfo_data.append([
+                        stealer_type,
+                        session_id,
+                        system_info.get('ip', ''),
+                        system_info.get('country', ''),
+                        system_info.get('os', '')
+                    ])
+                
+                if len(sysinfo_data) > 1:
+                    sysinfo_table = Table(sysinfo_data)
+                    sysinfo_table.setStyle(TableStyle([
+                        ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+                        ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+                        ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+                        ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+                        ('FONTSIZE', (0, 0), (-1, 0), 10),
+                        ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+                        ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+                        ('GRID', (0, 0), (-1, -1), 1, colors.black)
+                    ]))
+                    elements.append(sysinfo_table)
+            
+            doc.build(elements)
+            return True, f"PDF exported successfully to {output_path}"
+            
+        except Exception as e:
+            return False, f"Error exporting PDF: {str(e)}"

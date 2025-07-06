@@ -1,4 +1,4 @@
-# 🔍 Leaked Data Parser & Analyzer
+# 🔍 Leaked Data Parser & Analyzer v3.0.0
 
 ##  Overview
 
@@ -6,20 +6,15 @@
 
 ## ⚠️ Important Warning
 
-**This tool is designed for legitimate security research and educational purposes only. Users must ensure compliance with applicable laws and regulations. The tool should only be used on data you have legal permission to analyze.**
+**This tool is designed for legitimate security research and educational purposes only. Users must comply with all applicable laws and regulations when using this tool.**
 
 ## 🚀 Key Features
 
-### 🔧 Multi-Source Data Processing
-- **Dark Web Data** - Extraction from dark web sources
-- **Data Breaches** - Analysis of breached databases
-- **Compromised Sources** - Processing of leaked information
-- **Encrypted Archives** - Decryption and analysis
-- **Structured Logs** - Parsing of various log formats
-- **Binary Data** - Analysis of binary files
-- **Network Captures** - Processing of network data
-- **File Archives** - Extraction from compressed files
-- **Database Dumps** - Analysis of database exports
+### 🔧 Multi-Format Processing
+- **Structured Data Parsing** - Complete data processing
+- **Multiple Source Support** - Handle various data formats
+- **Real-time Analysis** - Instant security insights
+- **Advanced Export** - Multiple output formats
 
 ### 📊 Data Analysis Capabilities
 - **System Information** - Hardware and software details
@@ -33,12 +28,17 @@
 - **File Analysis** - Document and media processing
 - **Geographic Data** - Location and IP information
 
-### 💾 Export Formats
-- **JSON** - Structured data export
-- **CSV** - Spreadsheet compatibility
-- **Excel** - Advanced reporting with multiple sheets
-- **HTML** - Interactive web reports
-- **PDF** - Professional documentation
+### 🗄️ ClickHouse Integration
+- **Real-time Database** - Fast analytical queries
+- **Scalable Storage** - Handle large datasets
+- **Advanced Analytics** - Complex data analysis
+- **Performance Monitoring** - Query optimization
+
+### 🖥️ Multiple Interfaces
+- **GUI Application** - User-friendly graphical interface
+- **CLI Application** - Command-line interface
+- **API Integration** - Programmatic access
+- **Batch Processing** - Automated workflows
 
 ## 🛡️ Security & Privacy Features
 
@@ -111,8 +111,8 @@ This tool is provided for legitimate security research and educational purposes 
 ## 🆘 Support
 
 ### Documentation
-- [User Guide](docs/user-guide.md)
-- [API Reference](docs/api-reference.md)
+- [User Guide](docs/user_guide.md)
+- [API Reference](docs/api_reference.md)
 - [Troubleshooting](docs/troubleshooting.md)
 - [Security Guidelines](docs/security.md)
 
@@ -147,3 +147,40 @@ This tool is provided for legitimate security research and educational purposes 
 ---
 
 **Made with ❤️ for the cybersecurity research community**
+
+## 🎯 **الخطوات التالية للتشغيل**
+
+### 1. **تثبيت المكتبات المحدثة**
+```bash
+pip install -r requirements.txt
+```
+
+### 2. **تشغيل التطبيق المتكامل**
+```bash
+python run_complete.py
+```
+
+### 3. **اختيار الواجهة المفضلة**
+- **GUI**: واجهة رسومية سهلة الاستخدام
+- **CLI**: واجهة سطر أوامر متقدمة
+- **ClickHouse**: إعداد ومراقبة قاعدة البيانات
+
+### 4. **تجربة CLI المتقدم**
+```bash
+# تحليل البيانات مع جميع الميزات
+python cli_parser.py parse -i ./Redline -o ./results -f json csv excel -a -c -v
+
+# استعلام ClickHouse
+python cli_parser.py query -q "SELECT COUNT(*) FROM passwords"
+
+# فحص حالة قاعدة البيانات
+python cli_parser.py status
+```
+
+هذا المشروع الآن **متكامل ومتطور** مع:
+- ✅ واجهة GUI محسنة
+- ✅ CLI متقدم مع rich output
+- ✅ تكامل ClickHouse كامل
+- ✅ معالجة أخطاء محسنة
+- ✅ وثائق شاملة
+- ✅ اختبارات مكتملة
